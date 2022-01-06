@@ -5,12 +5,12 @@ const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
 let calculation = [];
-let calcValue = '';
+calcValue = '';
 calcScreen.disable = true;
 
 keyNum.forEach(function (keyNum) {
     keyNum.addEventListener('click', function pushNumber(event) {
-        alert(keyNum.value);
+        //alert(keyNum.value);
         calculation.push(keyNum.value);
         //console.log(calculation);
         calcScreen.value = `${calculation}`;
@@ -19,7 +19,7 @@ keyNum.forEach(function (keyNum) {
 
 operNum.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
-        alert(operNum.value);
+        //alert(operNum.value);
         calculation.push(operNum.value);
         //console.log(calculation);
         calcScreen.value = `${calculation}`;
@@ -31,15 +31,19 @@ eqlOper.addEventListener('click', function calculate(event) {
     for (let i = 0; i < calculation.length; i++) {
         calcValue = calcValue + calculation[i];
     }
-    console.log(eval(calcValue));
-    alert(eval(calcValue));
+    //console.log(eval(calcValue));
+    //alert(eval(calcValue));
     calcScreen.value = eval(calcValue);
 })
 
 
 clr.addEventListener('click', function clear(event) {
-    alert(clr.value);
+    //alert(clr.value);'
+    calculation = [];
+    calcScreen.value = 0
 })
 
 
 
+//replace eval
+//change the input to calcscreen to replace ','
