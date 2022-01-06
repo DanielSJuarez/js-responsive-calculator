@@ -13,7 +13,8 @@ keyNum.forEach(function (keyNum) {
         //alert(keyNum.value);
         calculation.push(keyNum.value);
         //console.log(calculation);
-        calcScreen.value = `${calculation}`;
+        calcValue = calcValue + calculation;
+        calcScreen.value = calcValue;
     })
 });
 
@@ -22,7 +23,8 @@ operNum.forEach(function (operNum) {
         //alert(operNum.value);
         calculation.push(operNum.value);
         //console.log(calculation);
-        calcScreen.value = `${calculation}`;
+        calcValue = calcValue + calculation;
+        calcScreen.value = calcValue;
     })
 });
 
@@ -40,6 +42,7 @@ eqlOper.addEventListener('click', function calculate(event) {
 clr.addEventListener('click', function clear(event) {
     //alert(clr.value);'
     calculation = [];
+    calcValue = '';
     calcScreen.value = 0
 })
 
