@@ -13,8 +13,8 @@ keyNum.forEach(function (keyNum) {
         //alert(keyNum.value);
         calculation.push(keyNum.value);
         //console.log(calculation);
-        calcValue = calcValue + calculation;
-        calcScreen.value = calcValue;
+        //calcValue = `${calcValue} ${calculation}`;
+        calcScreen.value = calculation;
     })
 });
 
@@ -23,8 +23,8 @@ operNum.forEach(function (operNum) {
         //alert(operNum.value);
         calculation.push(operNum.value);
         //console.log(calculation);
-        calcValue = calcValue + calculation;
-        calcScreen.value = calcValue;
+        //calcValue = calcValue + calculation;
+        calcScreen.value = calculation;
     })
 });
 
