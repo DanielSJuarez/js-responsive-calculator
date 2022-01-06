@@ -28,20 +28,23 @@ operNum.forEach(function (operNum) {
 });
 
 eqlOper.addEventListener('click', function calculate(event) {
+    //console.log(calculation)
+    let calcString = calculation.toString();
+    //console.log(calcString);
     //alert(eqlOper.value);
-    for (let i = 0; i < calculation.length; i++) {
-        //calcValue = calcValue + calculation[i];
+    for (let i = 0; i < calcString.length; i++) {
         if (calculation[i] = '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9') {
-            currentNumber = currentNumber + calculation[i];
+            currentNumber = currentNumber + calcString[i];
             console.log(currentNumber);
         } else if (calculation[i] = '+' || '-' || '*' || '/') {
             oldNumber = oldNumber + currentNumber;
             console.log(oldNumber);
             currentNumber = ''
             currentOper = calculation[i];
+            console.log(currentOper);
         }
-        calcValue = oldNumber + currentOper + currentNumber;
-        console.log(calcValue);
+        //calcValue = parseFloat(oldNumber) + currentOper + parseFloat(currentNumber);
+        //console.log(calcValue);
             //calcScreen.value = calcValue;
     }
 })
