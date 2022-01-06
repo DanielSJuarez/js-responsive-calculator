@@ -32,7 +32,7 @@ eqlOper.addEventListener('click', function calculate(event) {
     for (let i = 0; i < calculation.length; i++) {
         //calcValue = calcValue + calculation[i];
         if (calculation[i] = 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) {
-            currentNumber = currentNumber + calculation[i].join();
+            currentNumber = currentNumber + calculation[i];
         } else if (calculation[i] = '+' || '-' || '*' || '/') {
             oldNumber = oldNumber + currentNumber;
             currentNumber = ''
