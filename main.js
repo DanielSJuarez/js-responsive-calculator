@@ -38,7 +38,7 @@ eqlOper.addEventListener('click', function calculate(event) {
             currentNumber = ''
             currentOper = calculation[i];
         }
-        calcValue =
+        calcValue = oldNumber + currentOper +currentNumber;
             calcScreen.value = calcValue;
     }
 })
