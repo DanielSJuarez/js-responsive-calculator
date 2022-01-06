@@ -5,6 +5,7 @@ const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
 let calculation = [];
+let calcValue = '';
 
 keyNum.forEach(function (keyNum) {
     keyNum.addEventListener('click', function pushNumber(event) {
@@ -23,7 +24,12 @@ operNum.forEach(function (operNum) {
 });
 
 eqlOper.addEventListener('click', function calculate(event) {
-    alert(eqlOper.value);
+    //alert(eqlOper.value);
+    for(let i = 0; i < calculation.length; i ++){
+        calcValue = calcValue + calculation[i]; 
+    }
+    console.log(calcValue);
+    alert(calcValue);
 })
 
 
