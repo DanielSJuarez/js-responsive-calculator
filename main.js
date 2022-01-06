@@ -1,6 +1,8 @@
 const keyNum = document.querySelectorAll('.number');
 const operNum = document.querySelectorAll('.operator');
 const eqlOper = document.querySelectorAll('.equal-sign');
+const clr = document.querySelectorAll('.clear');
+
 
 let calculation = [];
 
@@ -19,5 +21,11 @@ operNum.forEach(function(operNum){
 eqlOper.forEach(function(eqlOper){
     eqlOper.addEventListener('click', function pushNumber(event) {
         alert(eqlOper.textContent);
+    }) 
+});
+
+clr.forEach(function(clr){
+    clr.addEventListener('click', function pushNumber(event) {
+        alert(clr.textContent);
     }) 
 });
