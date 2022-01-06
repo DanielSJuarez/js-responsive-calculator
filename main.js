@@ -28,8 +28,8 @@ eqlOper.addEventListener('click', function calculate(event) {
     for(let i = 0; i < calculation.length; i ++){
         calcValue = calcValue + calculation[i]; 
     }
-    console.log(calcValue);
-    alert(calcValue);
+    console.log(eval(calcValue));
+    alert(eval(calcValue));
 })
 
 
