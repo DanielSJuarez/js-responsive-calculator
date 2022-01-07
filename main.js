@@ -4,10 +4,10 @@ const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
-let calculation = [];
 const compareNum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const compareOper = ['+', '-', '*', '/'];
-let oldNumber = [];
+let calculation = [];
+let oldNumber =[];
 let currentOper = [];
 let currentNumber = [];
 let calcValue = '';
@@ -17,7 +17,9 @@ keyNum.forEach(function (keyNum) {
     keyNum.addEventListener('click', function pushNumber(event) {
         //alert(keyNum.value);
         calculation.push(keyNum.value);
+        currentNumber.push(keyNum.value);
         calcScreen.value = calculation.join('');
+
     })
 });
 
@@ -25,32 +27,37 @@ operNum.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
         //alert(operNum.value);
         calculation.push(operNum.value);
+        currentOper.push(operNum.value);
+        oldNumber = currentNumber;
+        currentNumber = [];
         calcScreen.value = calculation.join('');
+        //console.log(currentOper);
     })
 });
+
+
 
 eqlOper.addEventListener('click', function calculate(event) {
     //alert(eqlOper.value);
     //console.log(calculation.join(''));
-    for (let i = 0; i < calculation.length; i++) {
-
-        if(compareNum.includes(calculation[i])){
-            currentNumber.push(calculation[i])
-        } else if (compareOper.includes(calculation[i])){
-            oldNumber = currentNumber;
-            currentNumber = [];
+    // for (let i = 0; i < calculation.length; i++) {
+        //console.log(currentOper);
+        //console.log(currentNumber)
+        let oldNumStr = parseFloat(oldNumber.toString());
+        let newNumStr = parseFloat(currentNumber.toString());
+        //console.log(typeof newNumStr)
+    
+        if (currentOper = ['+']){
+            calcScreen.value = oldNumStr + newNumStr;   
+        } else if (currentOper = ['-']){
+            calcScreen.value = oldNumStr - newNumStr;  
+        } else if (currentOper = ['*']){
+            calcScreen.value = oldNumStr * newNumStr;   
+        } else if (currentOper = ['/']){
+            calcScreen.value = oldNumStr / newNumStr;  
+        } else {
+            calcScreen.value = "Error";
         }
-
-        if (currentOper = '+'){
-            calcScreen.value = oldNumber + currentNumber;   
-        } else if (currentOper = '-'){
-            calcScreen.value = oldNumber - currentNumber;   
-        } else if (currentOper = '*'){
-            calcScreen.value = oldNumber * currentNumber;   
-        } else if (currentOper = '/'){
-            calcScreen.value = oldNumber / currentNumber;   
-        } 
-    }
 })
 
 
