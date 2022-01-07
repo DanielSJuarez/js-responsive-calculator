@@ -5,9 +5,11 @@ const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
 let calculation = [];
+const compareNum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const compareOper = ['+', '-', '*', '/'];
 let oldNumber = [];
 let currentOper = [];
-let currentNumber = '';
+let currentNumber = [];
 let calcValue = '';
 calcScreen.disable = true;
 
@@ -29,12 +31,21 @@ operNum.forEach(function (operNum) {
 
 eqlOper.addEventListener('click', function calculate(event) {
     //alert(eqlOper.value);
+    //console.log(calculation.join(''));
     for (let i = 0; i < calculation.length; i++) {
-        let finalCurNum = currentNumber.join('');
-        let finalOldNum = oldNumber.join('');
+
+        if(compareNum.includes(calculation[i])){
+            currentNumber.push(calculation[i])
+        } else if (compareOper.includes(calculation[i])){
+            oldNumber = currentNumber;
+            currentNumber = [];
+        }
+
+        // let finalCurNum = currentNumber.join('');
+        // let finalOldNum = oldNumber.join('');
 
         if (currentOper == '+'){
-            calcScreen.value = finalOldNum.toString() + finalCurNum.toString();   
+            calcScreen.value = finalOldNum + finalCurNum;   
         } else if (currentOper == '-'){
             calcScreen.value = finalOldNum.toString() - finalCurNum.toString();   
         } else if (currentOper == '*'){
