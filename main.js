@@ -41,31 +41,15 @@ eqlOper.addEventListener('click', function calculate(event) {
             currentNumber = [];
         }
 
-        // let finalCurNum = currentNumber.join('');
-        // let finalOldNum = oldNumber.join('');
-
-        if (currentOper == '+'){
-            calcScreen.value = finalOldNum + finalCurNum;   
-        } else if (currentOper == '-'){
-            calcScreen.value = finalOldNum.toString() - finalCurNum.toString();   
-        } else if (currentOper == '*'){
-            calcScreen.value = finalOldNum.toString() * finalCurNum.toString();   
-        } else if (currentOper == '/'){
-            calcScreen.value = finalOldNum.toString() / finalCurNum.toString();   
+        if (currentOper = '+'){
+            calcScreen.value = oldNumber + currentNumber;   
+        } else if (currentOper = '-'){
+            calcScreen.value = oldNumber - currentNumber;   
+        } else if (currentOper = '*'){
+            calcScreen.value = oldNumber * currentNumber;   
+        } else if (currentOper = '/'){
+            calcScreen.value = oldNumber / currentNumber;   
         } 
-        // if (calculation[i] = ['0'] || ['1'] || ['2'] || ['3'] || ['4'] || ['5'] || ['6'] || ['7'] || ['8'] || ['9']) {
-        //     currentNumber = currentNumber + calcString[i];
-        //     console.log(currentNumber);
-        // } else if (calculation[i] = '+' || '-' || '*' || '/') {
-        //     oldNumber = oldNumber + currentNumber;
-        //     console.log(oldNumber);
-        //     currentNumber = ''
-        //     currentOper = calculation[i];
-        //     console.log(currentOper);
-        // }
-        //calcValue = parseFloat(oldNumber) + currentOper + parseFloat(currentNumber);
-        //console.log(calcValue);
-            //calcScreen.value = calcValue;
     }
 })
 
