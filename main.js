@@ -5,7 +5,7 @@ const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
 const deci = document.querySelector('.decimal');
-const posNeg = document.querySelector('plus-minus');
+const posNeg = document.querySelector('.plus-minus');
 
 let calculation = [];
 let oldNumber = [];
@@ -26,15 +26,15 @@ deci.addEventListener('click', function pushDeci(event) {
     calculation.push(deci.value);
     currentNumber.push(deci.value);
     calcScreen.value = calculation.join('');
-
 });
 
-// posNeg.addEventListener('click', function pushPosNeg(event) {
-//     calculation.push(posNeg.value);
-//     currentNumber.push(posNeg.value);
-//     calcScreen.value = calculation.join('');
-
-// })
+posNeg.addEventListener('click', function pushPosNeg(event) {
+    if(currentNumber.join('').toString() > 0){
+        currentNumber = currentNumber * -1
+    } else if (currentNumber.join('').toString() < 0){
+        currentNumber = currentNumber 
+    }
+})
 
 operNum.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
@@ -47,7 +47,7 @@ operNum.forEach(function (operNum) {
 });
 
 eqlOper.addEventListener('click', function calculate(event) {
-
+   
     let oldNumStr = parseFloat(oldNumber.join('').toString());
     let newNumStr = parseFloat(currentNumber.join('').toString());
 
