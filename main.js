@@ -36,8 +36,8 @@ eqlOper.addEventListener('click', function calculate(event) {
     //let strOper = currentOper.toString();
     console.log(currentOper);
 
-    let oldNumStr = parseFloat(oldNumber.toString());
-    let newNumStr = parseFloat(currentNumber.toString());
+    let oldNumStr = parseFloat(oldNumber.join('').toString());
+    let newNumStr = parseFloat(currentNumber.join('').toString());
 
     if (currentOper === '+') {
         console.log('add');
