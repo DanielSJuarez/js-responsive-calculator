@@ -4,6 +4,9 @@ const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 
+const deci = document.querySelector('.decimal');
+const posNeg = document.querySelector('plus-minus');
+
 let calculation = [];
 let oldNumber = [];
 let currentOper = '';
@@ -18,6 +21,20 @@ keyNum.forEach(function (keyNum) {
 
     })
 });
+
+deci.addEventListener('click', function pushDeci(event) {
+    calculation.push(deci.value);
+    currentNumber.push(deci.value);
+    calcScreen.value = calculation.join('');
+
+});
+
+// posNeg.addEventListener('click', function pushPosNeg(event) {
+//     calculation.push(posNeg.value);
+//     currentNumber.push(posNeg.value);
+//     calcScreen.value = calculation.join('');
+
+// })
 
 operNum.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
