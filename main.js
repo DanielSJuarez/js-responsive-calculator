@@ -1,5 +1,6 @@
 const keyNum = document.querySelectorAll('.number');
 const operNum = document.querySelectorAll('.operator');
+const sciOper = document.querySelectorAll('.sci-ops');
 const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
@@ -43,6 +44,16 @@ operNum.forEach(function (operNum) {
         oldNumber = currentNumber;
         currentNumber = [];
         calcScreen.value = calculation.join('');
+    })
+});
+
+sciOper.forEach(function (operNum) {
+    operNum.addEventListener('click', function pushOperator(event) {
+        // calculation.push(operNum.value);
+        // currentOper = operNum.value;
+        // oldNumber = currentNumber;
+        // currentNumber = [];
+        // calcScreen.value = calculation.join('');
     })
 });
 

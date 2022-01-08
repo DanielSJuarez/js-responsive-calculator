@@ -46,6 +46,10 @@ html {
   .operator, .equal-sign {
     background-color: #FF9D00;
   }
+
+  .sci-ops {
+    background-color: #848281;
+  }
   
   .clear, .plus-minus, .percent {
     background-color: #6E6D6D;
