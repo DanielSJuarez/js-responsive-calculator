@@ -49,11 +49,11 @@ operNum.forEach(function (operNum) {
 
 sciOper.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
-        // calculation.push(operNum.value);
-        // currentOper = operNum.value;
-        // oldNumber = currentNumber;
-        // currentNumber = [];
-        // calcScreen.value = calculation.join('');
+        calculation.push(operNum.value);
+        currentOper = operNum.value;
+        oldNumber = currentNumber;
+        currentNumber = [];
+        calcScreen.value = calculation.join('');
     })
 });
 
@@ -68,11 +68,28 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = oldNumStr - newNumStr;
     } else if (currentOper === '*') {
         calcScreen.value = oldNumStr * newNumStr;
-    } else if (currentOper = '/') {
+    } else if (currentOper === '/') {
         calcScreen.value = oldNumStr / newNumStr;
+    } else if (currentOper ==='log') {
+        calcScreen.value = Math.sqrt(currentNumber);
+    } else if (currentOper === 'log') {
+        calcScreen.value = Math.log(currentNumber);
+    } else if (currentOper === 'sin') {
+        calcScreen.value = Math.sin(currentNumber);
+    } else if (currentOper === 'cos') {
+        calcScreen.value = Math.cos(currentNumber);
+    } else if (currentOper === 'tan') {
+        calcScreen.value = Math.tan(currentNumber);
+    } else if (currentOper === 'sinh') {
+        calcScreen.value = Math.sinh(currentNumber);
+    } else if (currentOper === 'cosh') {
+        calcScreen.value = Math.cosh(currentNumber);
+    } else if (currentOper === 'tanh') {
+        calcScreen.value = Math.tanh(currentNumber);
     } else {
         calcScreen.value = "Error";
-    }
+    } 
+
 })
 
 clr.addEventListener('click', function clear(event) {
