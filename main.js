@@ -55,6 +55,7 @@ sciOper.forEach(function (sciOper) {
         oldNumber = currentNumber;
         currentNumber = [];
         calcScreen.value = calculation.join('');
+        console.log(currentOper);
     })
 });
 
@@ -80,9 +81,9 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = oldNumStr * newNumStr;
     } else if (currentOper === '/') {
         calcScreen.value = oldNumStr / newNumStr;
-    } else if (currentOper ==='') {
+    } else if (currentOper ==='√') {
         calcScreen.value = Math.sqrt(newNumStr);
-    } else if (currentOper ==='') {
+    } else if (currentOper ==='∛') {
         calcScreen.value = Math.cbrt(newNumStr);
     } else if (currentOper ==='²') {
         calcScreen.value = Math.pow(newNumStr, 2);
