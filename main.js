@@ -1,6 +1,7 @@
 const keyNum = document.querySelectorAll('.number');
 const operNum = document.querySelectorAll('.operator');
 const sciOper = document.querySelectorAll('.sci-ops');
+const powNum = document.querySelectorAll('.pow-num');
 const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
@@ -47,12 +48,21 @@ operNum.forEach(function (operNum) {
     })
 });
 
-sciOper.forEach(function (operNum) {
-    operNum.addEventListener('click', function pushOperator(event) {
-        calculation.push(operNum.value);
-        currentOper = operNum.value;
+sciOper.forEach(function (sciOper) {
+    sciOper.addEventListener('click', function pushSciOper(event) {
+        calculation.push(sciOper.value);
+        currentOper = sciOper.value;
         oldNumber = currentNumber;
         currentNumber = [];
+        calcScreen.value = calculation.join('');
+    })
+});
+
+powNum.forEach(function (powNum) {
+    powNum.addEventListener('click', function pushPowerOper(event) {
+        calculation.push(powNum.value);
+        currentOper = powNum.value;
+        currentNumber.push(powNum.value);
         calcScreen.value = calculation.join('');
     })
 });
@@ -70,22 +80,28 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = oldNumStr * newNumStr;
     } else if (currentOper === '/') {
         calcScreen.value = oldNumStr / newNumStr;
-    } else if (currentOper ==='log') {
-        calcScreen.value = Math.sqrt(currentNumber);
+    } else if (currentOper ==='') {
+        calcScreen.value = Math.sqrt(newNumStr);
+    } else if (currentOper ==='') {
+        calcScreen.value = Math.cbrt(newNumStr);
+    } else if (currentOper ==='²') {
+        calcScreen.value = Math.pow(newNumStr, 2);
+    } else if (currentOper ==='³') {
+        calcScreen.value = Math.pow(newNumStr, 3);
     } else if (currentOper === 'log') {
-        calcScreen.value = Math.log(currentNumber);
+        calcScreen.value = Math.log(newNumStr);
     } else if (currentOper === 'sin') {
-        calcScreen.value = Math.sin(currentNumber);
+        calcScreen.value = Math.sin(newNumStr);
     } else if (currentOper === 'cos') {
-        calcScreen.value = Math.cos(currentNumber);
+        calcScreen.value = Math.cos(newNumStr);
     } else if (currentOper === 'tan') {
-        calcScreen.value = Math.tan(currentNumber);
+        calcScreen.value = Math.tan(newNumStr);
     } else if (currentOper === 'sinh') {
-        calcScreen.value = Math.sinh(currentNumber);
+        calcScreen.value = Math.sinh(newNumStr);
     } else if (currentOper === 'cosh') {
-        calcScreen.value = Math.cosh(currentNumber);
+        calcScreen.value = Math.cosh(newNumStr);
     } else if (currentOper === 'tanh') {
-        calcScreen.value = Math.tanh(currentNumber);
+        calcScreen.value = Math.tanh(newNumStr);
     } else {
         calcScreen.value = "Error";
     } 
