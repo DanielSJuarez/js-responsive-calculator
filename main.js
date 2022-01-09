@@ -20,7 +20,6 @@ keyNum.forEach(function (keyNum) {
         calculation.push(keyNum.value);
         currentNumber.push(keyNum.value);
         calcScreen.value = calculation.join('');
-
     })
 });
 
@@ -30,23 +29,13 @@ deci.addEventListener('click', function pushDeci(event) {
     calcScreen.value = calculation.join('');
 });
 
-posNeg.addEventListener('click', function pushPosNeg(event) {
-    if(currentNumber.join('').toString() > 0){
-        currentNumber = currentNumber * -1
-    } else if (currentNumber.join('').toString() < 0){
-        currentNumber = currentNumber 
-    }
-})
-
-operNum.forEach(function (operNum) {
-    operNum.addEventListener('click', function pushOperator(event) {
-        calculation.push(operNum.value);
-        currentOper = operNum.value;
-        oldNumber = currentNumber;
-        currentNumber = [];
-        calcScreen.value = calculation.join('');
-    })
-});
+// posNeg.addEventListener('click', function pushPosNeg(event) {
+//     if(currentNumber.join('').toString() > 0){
+//         currentNumber = currentNumber * -1
+//     } else if (currentNumber.join('').toString() < 0){
+//         currentNumber = currentNumber 
+//     }
+// })
 
 sciOper.forEach(function (sciOper) {
     sciOper.addEventListener('click', function pushSciOper(event) {
@@ -55,7 +44,6 @@ sciOper.forEach(function (sciOper) {
         oldNumber = currentNumber;
         currentNumber = [];
         calcScreen.value = calculation.join('');
-        console.log(currentOper);
     })
 });
 
@@ -68,10 +56,39 @@ powNum.forEach(function (powNum) {
     })
 });
 
+operNum.forEach(function (operNum) {
+    operNum.addEventListener('click', function pushOperator(event) {
+        calculation.push(operNum.value);
+        currentOper = operNum.value;
+        oldNumber = currentNumber;
+        currentNumber = [];
+        calcScreen.value = calculation.join('');
+    })
+});
+
 eqlOper.addEventListener('click', function calculate(event) {
-   
-    let oldNumStr = parseFloat(oldNumber.join('').toString());
-    let newNumStr = parseFloat(currentNumber.join('').toString());
+
+    // let newNumStr = parseFloat(currentNumber.join('').toString());
+    // let oldNumStr = parseFloat(oldNumber.join('').toString());
+
+    let oldNumStr;
+    let newNumStr;
+
+    if (oldNumber.toString() === 'π') {
+        oldNumStr = Math.PI;
+    } else if (oldNumber.toString() === 'e') {
+        oldNumStr = Math.E;
+    } else { 
+        oldNumStr = parseFloat(oldNumber.join('').toString());
+    }
+
+    if (currentNumber.toString() === 'π') {
+        newNumStr = Math.PI;
+    } else if (currentNumber.toString() === 'e') {
+        newNumStr = Math.E;
+    } else { 
+        newNumStr = parseFloat(currentNumber.join('').toString());
+    }
 
     if (currentOper === '+') {
         calcScreen.value = oldNumStr + newNumStr;
@@ -103,8 +120,8 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = Math.cosh(newNumStr);
     } else if (currentOper === 'tanh') {
         calcScreen.value = Math.tanh(newNumStr);
-    } else {
-        calcScreen.value = "Error";
+    } else if (currentOper === '' ) {
+        calcScreen.value = newNumStr;
     } 
 
 })
