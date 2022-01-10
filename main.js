@@ -24,6 +24,14 @@ keyNum.forEach(function (keyNum) {
     })
 });
 
+
+prct.addEventListener('click', function pushPercent(event) {
+    calculation.push(prct.value);
+    currentNumber.push(prct.value);
+    calcScreen.value = calculation.join('');
+});
+
+
 deci.addEventListener('click', function pushDeci(event) {
     calculation.push(deci.value);
     currentNumber.push(deci.value);
@@ -36,10 +44,6 @@ deci.addEventListener('click', function pushDeci(event) {
 //     } else if (currentNumber.join('').toString() < 0){
 //         currentNumber = currentNumber 
 //     }
-// })
-
-// prct.addEventListener('click', function pushPrct(event){
-
 // })
 
 sciOper.forEach(function (sciOper) {
@@ -74,9 +78,6 @@ operNum.forEach(function (operNum) {
 });
 
 eqlOper.addEventListener('click', function calculate(event) {
-
-    // let newNumStr = parseFloat(currentNumber.join('').toString());
-    // let oldNumStr = parseFloat(oldNumber.join('').toString());
 
     let oldNumStr;
     let newNumStr;
