@@ -2,11 +2,11 @@ const keyNum = document.querySelectorAll('.number');
 const operNum = document.querySelectorAll('.operator');
 const sciOper = document.querySelectorAll('.sci-ops');
 const powNum = document.querySelectorAll('.pow-num');
+
 const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
 const prct = document.querySelector('.percent');
-
 const deci = document.querySelector('.decimal');
 const posNeg = document.querySelector('.plus-minus');
 
@@ -89,7 +89,7 @@ eqlOper.addEventListener('click', function calculate(event) {
     } else if (oldNumber.includes('%')) {
         oldNumber.splice(-1)
         oldNumStr = parseFloat(oldNumber.join('').toString()) / 100;
-    } else { 
+    } else {
         oldNumStr = parseFloat(oldNumber.join('').toString());
     }
 
@@ -102,7 +102,7 @@ eqlOper.addEventListener('click', function calculate(event) {
         console.log(currentNumber);
         newNumStr = parseFloat(currentNumber.join('').toString()) / 100;
         console.log(newNumStr);
-    } else { 
+    } else {
         newNumStr = parseFloat(currentNumber.join('').toString());
     }
 
@@ -114,15 +114,17 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = oldNumStr * newNumStr;
     } else if (currentOper === '/') {
         calcScreen.value = oldNumStr / newNumStr;
-    } else if (currentOper ==='√') {
+    } else if (currentOper === '√') {
         calcScreen.value = Math.sqrt(newNumStr);
-    } else if (currentOper ==='∛') {
+    } else if (currentOper === '∛') {
         calcScreen.value = Math.cbrt(newNumStr);
-    } else if (currentOper ==='²') {
+    } else if (currentOper === 'x√') {
+        calcScreen.value = oldNumStr * Math.sqrt(newNumStr);
+    } else if (currentOper === '²') {
         calcScreen.value = Math.pow(newNumStr, 2);
-    } else if (currentOper ==='³') {
+    } else if (currentOper === '³') {
         calcScreen.value = Math.pow(newNumStr, 3);
-    } else if (currentOper ==='^') {
+    } else if (currentOper === '^') {
         calcScreen.value = Math.pow(oldNumStr, newNumStr);
     } else if (currentOper === 'log') {
         calcScreen.value = Math.log(newNumStr);
@@ -138,9 +140,9 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = Math.cosh(newNumStr);
     } else if (currentOper === 'tanh') {
         calcScreen.value = Math.tanh(newNumStr);
-    } else if (currentOper === '' ) {
+    } else if (currentOper === '') {
         calcScreen.value = newNumStr;
-    } 
+    }
 
 })
 
