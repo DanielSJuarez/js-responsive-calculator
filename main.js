@@ -22,29 +22,36 @@ keyNum.forEach(function (keyNum) {
         currentNumber.push(keyNum.value);
         calcScreen.value = calculation.join('');
     })
-});
+})
 
 
 prct.addEventListener('click', function pushPercent(event) {
     calculation.push(prct.value);
     currentNumber.push(prct.value);
     calcScreen.value = calculation.join('');
-});
+})
 
 
 deci.addEventListener('click', function pushDeci(event) {
     calculation.push(deci.value);
     currentNumber.push(deci.value);
     calcScreen.value = calculation.join('');
-});
+})
 
-// posNeg.addEventListener('click', function pushPosNeg(event) {
-//     if(currentNumber.join('').toString() > 0){
-//         currentNumber = currentNumber * -1
-//     } else if (currentNumber.join('').toString() < 0){
-//         currentNumber = currentNumber 
-//     }
-// })
+posNeg.addEventListener('click', function pushPosNeg(event) {
+    if (currentNumber.includes('-') || oldNumber.includes('-')) {
+        currentNumber.splice(0,1);
+        oldNumber.splice(0,1)
+        console.log(currentNumber)
+        calculation.splice(0,1);
+        console.log(calculation)
+        calcScreen.value = calculation.join('')
+    } else {
+        calculation.unshift(posNeg.value);
+        currentNumber.unshift(posNeg.value);
+        calcScreen.value = calculation.join('')
+    }
+})
 
 sciOper.forEach(function (sciOper) {
     sciOper.addEventListener('click', function pushSciOper(event) {
@@ -53,9 +60,8 @@ sciOper.forEach(function (sciOper) {
         oldNumber = currentNumber;
         currentNumber = [];
         calcScreen.value = calculation.join('');
-        console.log(currentOper);
     })
-});
+})
 
 powNum.forEach(function (powNum) {
     powNum.addEventListener('click', function pushPowerOper(event) {
@@ -63,9 +69,8 @@ powNum.forEach(function (powNum) {
         currentOper = powNum.value;
         currentNumber.push(powNum.value);
         calcScreen.value = calculation.join('');
-        console.log(currentOper);
     })
-});
+})
 
 operNum.forEach(function (operNum) {
     operNum.addEventListener('click', function pushOperator(event) {
@@ -75,7 +80,7 @@ operNum.forEach(function (operNum) {
         currentNumber = [];
         calcScreen.value = calculation.join('');
     })
-});
+})
 
 eqlOper.addEventListener('click', function calculate(event) {
 
@@ -99,9 +104,7 @@ eqlOper.addEventListener('click', function calculate(event) {
         newNumStr = Math.E;
     } else if (currentNumber.includes('%')) {
         currentNumber.splice(-1)
-        console.log(currentNumber);
         newNumStr = parseFloat(currentNumber.join('').toString()) / 100;
-        console.log(newNumStr);
     } else {
         newNumStr = parseFloat(currentNumber.join('').toString());
     }
