@@ -39,6 +39,7 @@ deci.addEventListener('click', function pushDeci(event) {
 })
 
 posNeg.addEventListener('click', function pushPosNeg(event) {
+    //only added changes the positive/negative status while a number is in currentNumber and before a currentOper is set
     if (currentNumber.includes('-')) {
         currentNumber.splice(0,1);
         calculation.splice(0,1);
