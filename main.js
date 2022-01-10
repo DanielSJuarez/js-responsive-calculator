@@ -39,9 +39,8 @@ deci.addEventListener('click', function pushDeci(event) {
 })
 
 posNeg.addEventListener('click', function pushPosNeg(event) {
-    if (currentNumber.includes('-') || oldNumber.includes('-')) {
+    if (currentNumber.includes('-')) {
         currentNumber.splice(0,1);
-        oldNumber.splice(0,1)
         calculation.splice(0,1);
         calcScreen.value = calculation.join('')
     } else {
