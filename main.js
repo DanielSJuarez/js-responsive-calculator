@@ -5,6 +5,7 @@ const powNum = document.querySelectorAll('.pow-num');
 const eqlOper = document.querySelector('.equal-sign');
 const clr = document.querySelector('.clear');
 const calcScreen = document.querySelector('.calculator-screen');
+const prct = document.querySelector('.percent');
 
 const deci = document.querySelector('.decimal');
 const posNeg = document.querySelector('.plus-minus');
@@ -37,6 +38,10 @@ deci.addEventListener('click', function pushDeci(event) {
 //     }
 // })
 
+// prct.addEventListener('click', function pushPrct(event){
+
+// })
+
 sciOper.forEach(function (sciOper) {
     sciOper.addEventListener('click', function pushSciOper(event) {
         calculation.push(sciOper.value);
@@ -44,6 +49,7 @@ sciOper.forEach(function (sciOper) {
         oldNumber = currentNumber;
         currentNumber = [];
         calcScreen.value = calculation.join('');
+        console.log(currentOper);
     })
 });
 
@@ -53,6 +59,7 @@ powNum.forEach(function (powNum) {
         currentOper = powNum.value;
         currentNumber.push(powNum.value);
         calcScreen.value = calculation.join('');
+        console.log(currentOper);
     })
 });
 
@@ -78,6 +85,9 @@ eqlOper.addEventListener('click', function calculate(event) {
         oldNumStr = Math.PI;
     } else if (oldNumber.toString() === 'e') {
         oldNumStr = Math.E;
+    } else if (oldNumber.includes('%')) {
+        oldNumber.splice(-1)
+        oldNumStr = parseFloat(oldNumber.join('').toString()) / 100;
     } else { 
         oldNumStr = parseFloat(oldNumber.join('').toString());
     }
@@ -86,6 +96,11 @@ eqlOper.addEventListener('click', function calculate(event) {
         newNumStr = Math.PI;
     } else if (currentNumber.toString() === 'e') {
         newNumStr = Math.E;
+    } else if (currentNumber.includes('%')) {
+        currentNumber.splice(-1)
+        console.log(currentNumber);
+        newNumStr = parseFloat(currentNumber.join('').toString()) / 100;
+        console.log(newNumStr);
     } else { 
         newNumStr = parseFloat(currentNumber.join('').toString());
     }
@@ -106,6 +121,8 @@ eqlOper.addEventListener('click', function calculate(event) {
         calcScreen.value = Math.pow(newNumStr, 2);
     } else if (currentOper ==='³') {
         calcScreen.value = Math.pow(newNumStr, 3);
+    } else if (currentOper ==='^') {
+        calcScreen.value = Math.pow(oldNumStr, newNumStr);
     } else if (currentOper === 'log') {
         calcScreen.value = Math.log(newNumStr);
     } else if (currentOper === 'sin') {
