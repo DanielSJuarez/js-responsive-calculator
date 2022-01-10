@@ -42,9 +42,7 @@ posNeg.addEventListener('click', function pushPosNeg(event) {
     if (currentNumber.includes('-') || oldNumber.includes('-')) {
         currentNumber.splice(0,1);
         oldNumber.splice(0,1)
-        console.log(currentNumber)
         calculation.splice(0,1);
-        console.log(calculation)
         calcScreen.value = calculation.join('')
     } else {
         calculation.unshift(posNeg.value);
